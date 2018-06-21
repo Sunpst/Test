@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .main_nav > ul {
+            width: 1000px;
+            height: 100px;
+            border: 1px solid red;
+            margin: auto;
+        }
+
+        .main_nav > ul > li {
+            width: 250px;
+            height: 100px;
+            float: left;
+            line-height: 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        h2 + ul {
+            width: 100%;
+            position: absolute;
+            height: 0px;
+            background: red;
+            overflow: hidden;
+            transition: all 1s;
+            text-align: left;
+        }
+
+        h2 + ul li:hover {
+            background: yellow;
+            padding-left: 50px;
+            font-size: 30px;
+            transition: all 1s;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var aH2 = document.getElementsByTagName("h2");
+            var aUl = [];
+            for (var i = 0; i < aH2.length; i++) {
+                aUl[i] = aH2[i].nextElementSibling;
+                aH2[i].onmouseover = function () {
+                    this.nextElementSibling.style.height = "300px";
+                };
+                aH2[i].onmouseout = function () {
+                    this.nextElementSibling.onmouseover = function () {
+                        this.style.height = "300px";
+                    };
+                    this.nextElementSibling.onmouseleave = function () {
+                        this.style.height = "0px";
+                    };
+                    this.nextElementSibling.style.height = "0px";
+                };
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="main_nav" id="main_nav">
+    <ul>
+        <li>
+            <h2>1</h2>
+            <ul>
+                <li>11</li>
+                <li>12</li>
+                <li>13</li>
+            </ul>
+        </li>
+        <li>
+            <h2>2</h2>
+            <ul>
+                <li>21</li>
+                <li>22</li>
+                <li>23</li>
+            </ul>
+        </li>
+        <li>
+            <h2>3</h2>
+            <ul>
+                <li>31</li>
+                <li>32</li>
+                <li>33</li>
+            </ul>
+        </li>
+        <li>
+            <h2>4</h2>
+            <ul>
+                <li>41</li>
+                <li>42</li>
+                <li>43</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

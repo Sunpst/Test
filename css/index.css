@@ -1,0 +1,115 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+}
+body{
+	background: #DDDDDD;
+}
+li{
+	list-style: none;
+	background: yellow;
+	color: #666666;
+	border-bottom: 1px solid #0044CC;
+	padding: 4px;
+	border-radius:5px;
+	font: 700 15px/20px "微软雅黑";
+	display: inline-block;
+	margin: 5px;
+	
+}
+li:hover{
+	cursor: pointer;
+}
+input{
+	border: 0 none;
+	outline: none;
+}
+a{
+	text-decoration: none;
+}
+.cleaner:after,.cleaner:before{
+	display: table;
+	content: "";
+}
+.cleaner:after{
+	clear: both;
+}
+.cleaner{
+	zoom: 1;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.main-content>div{
+	float: left;
+	width: 32%;
+	margin-left: 1%;
+	
+}
+.main-content>div>ul{
+	background: #999999;
+}
+.main-content>div:nth-of-type(1){
+	background: #26e0d1;
+}
+.main-content>div:nth-of-type(2){
+	background: #80d032;
+	margin-left: 1%;
+}
+.main-content>div:nth-of-type(3){
+	background: #651516;
+	margin-left: 1%;
+}
+.titles{
+	text-align: center;
+	font: 800 20px/40px "微软雅黑";
+}
+#allseach{
+	width: 50%;
+	height: 3em;
+	padding-left: 5px;
+}
+.dialog{
+	display: none;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100vh;
+	background: rgba(0,0,0,0.4);
+	cursor: pointer;
+}
+#dialogUl{
+	width: 50%;
+	background: #FFFFFF;
+	min-height: 100px;
+	position: relative;
+	top: 10%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+#closeDialog{
+	padding: 5px;
+	background: white;
+	position: absolute;
+	right: 0px;
+	top:0px;
+	width: 50px;
+	
+}
+#Explain{
+	text-indent:2em 
+	width: 100em;
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 90%;
+	font-family: "微软雅黑";
+	line-height: 20px;
+	min-height: 1em;
+	background: #DDDDDD;
+}

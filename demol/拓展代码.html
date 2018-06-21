@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		 //失去焦点校验
+      handleBlur: function (valName, idName) {
+        let that = this;
+        if (this.oldName != this[valName]) {
+          this[valName] = "";
+          this[idName] = "";
+        }
+        setTimeout(() => {
+          if (!idName) {
+            that[valName] = "";
+            that[idName] = "";
+          }
+        }, 200);
+      },
+      
+      
+      var outputExal = require("../../config/exportExcel").default;
+      //导出方法
+        toport:function(){
+        let that=this;
+        let theadData = this.$refs.allTableData;
+        let params = {
+          pageSize: -1,
+          address: that.headerInput.address, //地址
+          negotiator: that.headerInput.negotiator, //谈判手名称
+          hasDecorateMargin: that.headerInput.hasDecorateMargin, //谈判手名称
+          openBeginDate:that.headerInput.business[0]-0==0?"":that.headerInput.business[0]-0, //开始营业日期
+          openEndDate:that.headerInput.business[1]-0==0?"":that.headerInput.business[1]-0, //结束营业日期
+          regionType: that.headerInput.regionType, //国内外	number	1 国内 2 国外
+          shopName: that.headerInput.shopName, //门店名称
+          assistant:that.headerInput.assistant,//拓展助理
+          signBeginDate:that.headerInput.Sign[0]-0==0?"":that.headerInput.Sign[0]-0, //开始签约日期
+          signEndDate:that.headerInput.Sign[1]-0==0?"":that.headerInput.Sign[1]-0, //结束签约日期
+          rentEnddate1:that.headerInput.rentEnddate[0]-0==0?"":that.headerInput.rentEnddate[0]-0,
+          rentEnddate2:that.headerInput.rentEnddate[1]-0==0?"":that.headerInput.rentEnddate[1]-0,
+        };
+        let allTime={
+          signDate:"Date",
+          openDate:"Date",
+          contractOpenDate:"Date",
+          contractEndDate:"Date"
+        };
+        outputExal.export2Excel(params,"getHistoryBusis",allTime,theadData,'商务档案');
+      },
+	</body>
+</html>

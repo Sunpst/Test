@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动的盒子</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            background: blanchedalmond;
+            margin: 100px auto;
+        }
+
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background: blue;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="div1"></div>
+</div>
+
+<script>
+    var oDiv1 = document.getElementById("div1");
+    var speed = 7;
+    var timer = 0;
+    document.onkeydown = function (eve) {
+        var oEvent = eve || event;
+        if (!timer) {
+            if (oEvent.keyCode == 40) {
+                timer = setInterval(function () {
+                    oDiv1.style.top = oDiv1.offsetTop + speed + "px";
+                    if (oDiv1.offsetTop >= 400) {
+                        oDiv1.style.top = "400px";
+                    }
+                }, 10);
+            }
+            if (oEvent.keyCode == 39) {
+                timer = setInterval(function () {
+                    oDiv1.style.left = oDiv1.offsetLeft + speed + "px";
+                    if (oDiv1.offsetLeft >= 400) {
+                        oDiv1.style.left = "400px";
+                    }
+                }, 10)
+            }
+            if (oEvent.keyCode == 37) {
+                timer = setInterval(function () {
+                    oDiv1.style.left = oDiv1.offsetLeft - speed + "px";
+                    if (oDiv1.offsetLeft <= 0) {
+                        oDiv1.style.left = "0px";
+                    }
+                }, 10)
+            }
+            if (oEvent.keyCode == 38) {
+                timer = setInterval(function () {
+                    oDiv1.style.top = oDiv1.offsetTop - speed + "px";
+                    if (oDiv1.offsetTop <= 0) {
+                        oDiv1.style.top = "0px";
+                    }
+                }, 10)
+            }
+        }
+    };
+    document.onkeyup = function () {
+        clearInterval(timer);
+        timer = 0;
+    }
+</script>
+</body>
+</html>

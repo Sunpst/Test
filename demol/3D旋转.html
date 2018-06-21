@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            width:200px;
+            height:200px;
+            position: absolute;
+            top:200px;
+            left:50%;
+            margin-left: -100px;
+            transform-style: preserve-3d;
+            transform: rotateX(-30deg);
+            animation: sport 12s linear infinite;
+        }
+        @keyframes sport {
+            from{
+                transform: rotateX(-20deg) rotateY(0deg);
+            }
+            to{
+                transform: rotateX(-20deg) rotateY(360deg);
+            }
+        }
+        ul:hover{
+            animation-play-state: paused;
+        }
+        ul li{
+            list-style: none;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        ul li:nth-child(1){
+            transform: rotateY(60deg) translateZ(200px);
+            transition: all 1s;
+            background-color: #00CC00;
+        }
+        ul li:nth-child(2){
+            transform: rotateY(120deg) translateZ(200px);
+            transition: all 1s;
+            background-color: yellow;
+        }
+        ul li:nth-child(3){
+            transform: rotateY(180deg) translateZ(200px);
+            transition: all 1s;
+            background-color: deepskyblue;
+        }
+        ul li:nth-child(4){
+            transform: rotateY(240deg) translateZ(200px);
+            transition: all 1s;
+            background-color: orangered;
+        }
+        ul li:nth-child(5){
+            transform: rotateY(300deg) translateZ(200px);
+            transition: all 1s;
+            background-color: red;
+        }
+        ul li:nth-child(6){
+            transform: rotateY(360deg) translateZ(200px);
+            transition: all 1s;
+            background-color: pink;
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

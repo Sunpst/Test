@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 20000px;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var oDiv = document.getElementById("div1");
+            //  当鼠标按下时   使div 开始跟随鼠标移动  oDiv.onmousedown
+            //  当鼠标移动     使div 跟随鼠标移动
+            //  当鼠标抬起时   使div 停止跟随鼠标移动  oDiv.onmouseup
+            // 开关
+            var isRun = false;
+            var divX = 0;
+            var divY = 0;
+            oDiv.onmousedown = function (ev) {
+                //当鼠标按下时 打开开关
+                isRun = true;
+                var oEvent = ev || event;
+                // 获取鼠标与div左上边框的距离
+                divX = oEvent.clientX - oDiv.offsetLeft;
+                divY = oEvent.clientY - oDiv.offsetTop;
+            }
+            document.onmousemove = function (ev) {
+                // 当鼠标移动时   如果开关打开   更改div位置
+                if (isRun) {
+                    var oEvent = ev || event;
+                    // 获取滚动条的距离
+                    // 将拖动或的位置 设置给 div
+                    oDiv.style.left = oEvent.clientX - divX + "px";
+                    oDiv.style.top = oEvent.clientY - divY + "px";
+                }
+            }
+            oDiv.onmouseup = function () {
+                // 当鼠标按键抬起时   关闭开关
+                isRun = false;
+            }
+//            document.onmousemove = function (ev) {
+//                // 当鼠标移动时   如果开关打开   更改div位置
+//                if (isRun) {
+//                    var oEvent = ev || event;
+//                    // 获取滚动条的距离
+//                    var scrollTop = document.documentElement.scrollTop
+//                            || document.body.scrollTop;
+//                    var scrollLeft = document.documentElement.scrollLeft
+//                            || document.body.scrollLeft;
+//                    // 将拖动或的位置 设置给 div
+//                    oDiv.style.left = scrollLeft + oEvent.clientX - divX + "px";
+//                    oDiv.style.top = scrollTop + oEvent.clientY - divY + "px";
+//                }
+//            }
+
+
+        }
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>

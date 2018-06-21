@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="tianmao">
+  <meta name="Description" content="购物、天猫">
+  <title>TianMao购物车小案列</title>
+  <style>
+     *{margin:0px;padding:0px;}
+	 a{text-decoration:none;}
+	 li{list-style:none;}
+	 /*头部样式*/
+	 .top_banner{width:100%;height:160px;}
+	 /*商品展示样式*/
+	 .buttom_content{width:1100px;height:310px;border:1px red solid;margin-left:110px;padding:10px;}
+	 .buttom_content li{float:left;width:220px;height:300px;border:1px solid #ddd;margin-left:15px;padding:5px;}
+	 .buttom_content ul li p.title{font-size:13px;color:#666;font-family:"微软雅黑";line-height:3em;}
+	 .buttom_content ul li p font.price{color:red;font-weight:bold;font-size:16px;}
+	 .buttom_content ul li p span{width:100px;height:30px;background:#ff5061;color:black;display:inline-block;
+	  float:right;text-align:center;line-height:30px;cursor:pointer;border-radius:12px;}
+	 /*购物车货架展示样式*/
+	 .buyCar{position:fixed;top:0px; right:-240px;width:280px;height:100%;}
+	 .buyCar .btn{width:40px;height:100%;background:#000;float:left;}
+     .buyCar .btn span{width:12px;height:90px;color:#fff;background:red;display:inline-block;margin-top:400px;font-size:12px;font-family:"微软雅黑";padding:14px;cursor:pointer;}
+	 .buyCar .show{width:240px;height:100%;background:#ddd;float:right;overflow-X:hidden;overflow-Y:auto;}
+	 .buyCar .show .clear{width:96%;height:30px;background:#545e60;position:absolute;bottom:1px;text-align:center;color:#fff;cursor:pointer;}
+	 /*购物车货架(商品)添加样式*/
+	 .show ul li {width:240px;height:100px;border:1px solid black;margin:5px;padding:5px; }
+	 .show ul li img{float:left;}
+	 .show ul li p{font-size:13px;color:#666;font-family:"微软雅黑";line-height:2em;}
+	 .show ul li p font.show_ys{color:red;font-weight:bold;font-size:10px;}
+	 .show ul li p span{margin-left:10px;border:1px solid black;padding:3px 5px;cursor:pointer;}
+	 /*添加fly动画效果圆圈样式*/
+	 .fly{width:50px;height:50px;border-radius:50%;border:1px solid red;}
+  </style>
+  <script src="js/jquery.js"></script>
+  <script src="js/tz_fly.js"></script>
+  <script>
+     $(document).ready(function(){
+	    //alert("adsfl");
+        /*购物车的弹出控制*/
+		var key=0;
+		$(".buyCar .btn").click(function(){ 
+			 if(key==0){
+			     $(this).parent(".buyCar").css({right:"0px"});
+				 key=1;
+			 }
+			 else{
+				 $(this).parent(".buyCar").animate({right:"-240px"},500);
+				 key=0;
+				 }
+		});
+		/*商品添加jion*/
+         $(".buttom_content ul li p span").click(function(){
+			 //alert("确认添加？？");
+		     var _src=$(this).parent().siblings("img").attr("src");//获取商品图片
+			 var _title=$(this).parent().siblings("p.title").html();//获取商品信息
+			 
+			 var _price=$(this).siblings("font.price").html();//获取商品价格
+			
+			 /*集合商品内容信息*/
+			 /*var _jion="<li><img src='"+_src+"' width='85' height='85'/><p>"+_title+"<font class='show_ys'>"+_price+"</font></p><p>"+商品数量+"<font class='show_ys'>"+&nbsp 1+"</font><span>"+++"</span><span>"+-+"</span></p></li>";*/
+
+			 var _jion="<li><img src='"+_src+"' width='85' height='85'/><p>"+_title+"<font class='show_ys'>"+_price+"</font></p><p>商品数量<font class='show_ys'>&nbsp 1</font><span>+</span><span>-</span></p></li>";
+			
+			 $(".buyCar .show").append(_jion);
+			//抛物线动画开始
+			addProduct(event);
+		 });
+
+		 //清空购物车
+		 $(".buyCar .show .clear").click(function(){
+		     $(".buyCar .show").find("li").remove();
+		 });
+		 /*创建一个抛物线动画*/
+		 function addProduct(event){
+		     //设置抛物线的落脚点
+			 var offset=$(".buyCar .btn span").offset();
+			 //设置抛物线的发生源
+			 var _ele=$(event.target);
+             //获取用户当前选择商品图片
+			 var _Src=_ele.parent().siblings("img").attr("src");
+
+			 //抛物线动画准备
+             		var flyer =$("<img src='"+_Src+"' class='fly' />");
+		//生成抛物线动画
+		flyer.fly({
+			//动画开始
+			start:{
+				//获取的点击购物车按钮坐标
+				left:event.clientX,
+				top:event.clientY,
+			},
+			//动画结束
+			end:{
+				//设置
+				left:offset.left,
+				top:offset.top,
+				width:20,
+				height:20,
+			},
+			//结束点消失动画
+			onEnd:function(){
+				flyer.fadeOut("slow");
+			}
+		    });
+			
+		};	
+	
+	 });
+  </script>
+ </head>
+ <body>
+     <!--头部广告区域 开始-->
+     <div class="top_banner">
+	     <img src="images/banner.jpg"/>
+	 </div>
+	 <!--头部广告区域 结束-->
+	 <!--商品展示区域 开始-->
+	 <div class="buttom_content">
+	     <ul>
+		     <li class="rotate">
+			     <img src="images/1.jpg" width="220" height="220" alt="夏装女装" title="2015夏季新品海澜之家女装正品1">
+				 <p class="title">2015夏季新品海澜之家女装正品1</p>
+				 <p><font class="price">￥188.0</font><span>加入购物车</span></p>
+			 </li>
+			 <li class="rotate">
+			     <img src="images/2.jpg" width="220" height="220" alt="夏装女装" title="2015夏季新品海澜之家女装正品2">
+				 <p class="title">2015夏季新品海澜之家女装正品2</p>
+				 <p><font class="price">￥288.0</font><span>加入购物车</span></p>
+			 </li>
+			 <li class="rotate">
+			     <img src="images/3.jpg" width="220" height="220" alt="夏装女装" title="2015夏季新品海澜之家女装正品3">
+				 <p class="title">2015夏季新品海澜之家女装正品3</p>
+				 <p><font class="price">￥166.0</font><span>加入购物车</span></p>
+			 </li>
+			 <li class="rotate">
+			     <img src="images/4.jpg" width="220" height="220" alt="夏装女装" title="2015夏季新品海澜之家女装正品4">
+				 <p class="title">2015夏季新品海澜之家女装正品4</p>
+				 <p><font class="price">￥322.0</font><span>加入购物车</span></p>
+			 </li>
+
+		 </ul>
+	 </div>
+	 <!--商品展示区域 结束-->
+	 <!--购物车区域 开始-->
+	 <div class="buyCar">
+	     <!--购物车按钮 开始-->
+	     <div class="btn"><span>我的购物车</span></div>
+		 <!--购物车栏架 开始-->
+		 <div class="show">
+		    <div>
+		     <ul>
+			     <li>
+				     <img src="images/1.jpg" width="85" height="85"/>
+					 <p class="">2015夏季新品海澜之家女装正品1 <font class="show_ys">￥188.0</font></p>			     
+					 <p>商品数量<font class="show_ys">&nbsp 1</font><span>+</span><span>-</span></p>
+				 </li>
+				 <li>
+				     <img src="images/2.jpg" width="85" height="85"/>
+					 <p class="">2015夏季新品海澜之家女装正品2 <font class="show_ys">￥288.0</font></p>			     
+					 <p>商品数量<font class="show_ys">&nbsp 1</font><span>+</span><span>-</span></p>
+				 </li>
+			 </ul></div>
+			 <div class="clear">清空购物车</div>
+		 </div>
+	 </div>
+	 <!--购物车区域 结束-->
+ </body>
+</html>

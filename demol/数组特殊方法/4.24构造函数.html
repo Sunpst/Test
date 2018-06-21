@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!--把多个函数-->
+		<!--三种模式-->
+			
+		
+		
+		
+		<!--面向对象的设计模式
+		构造函数模式
+		构造函数
+		首字母大写
+		必须使用new 关键字创建对象
+		
+		用了关键字 this-->
+		
+		
+		<script>
+//	构造函数
+//				function Obj(json){
+//					this.name=json.name;
+//					this.sex=json.sex;
+//					this.age=json.age;
+//					this.say=function(){
+//						console.log(this.name+"会说旺旺");
+//					}
+//				}
+//				
+//				var ff=new Obj({name:"剥茧",sex:"不男不女",age:"38"});
+//				console.log(ff);
+//				ff.say()
+			
+			
+//	原型模式
+//					构造函数的prototype属性
+//					
+				Obj.prototype={
+					name:json.name;
+					sex:json.sex;
+					age:json.age;
+					say=function(){
+						console.log(this.name+"会说旺旺");
+				}
+				var h=new Obj1();
+				var k=new Obj1();
+				
+				h.ff({name:"小马",sex:"男");
+				k.ff({name:"小马",sex:"男");
+			
+			
+//	组合模式
+			
+//				用的时候组合在一起
+//	
+//				构造函数		创建属性
+//				用原型		创建方法
+//				function Obj(json){
+//					this.name=json.name;
+//					this.sex=json.sex;
+//					this.age=json.age;
+//				} 
+//				Obj.prototype=function(){
+//					say:function(){
+//						console.log(this.name+"往往nag")
+//					}
+//					eat:function(){
+//						console.log(this.name+"吃")
+//					}
+//				}
+//				var ff=
+			
+			
+//	工厂模式
+//				function gg(name){
+//					var k=new Object();
+//					k.name=name;
+//					k.say=function(){
+//						console.log(k.name+"去上班");
+//					}
+//					return k;
+//				}
+//				
+//				var g=gg("你大爷");
+//				g.say();
+				
+//				大量的创建相同的对象或方法
+//				1.创建 2.添加属性或者方法   3.return
+			
+			
+		</script>
+	</body>
+</html>
