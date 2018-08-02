@@ -3,16 +3,25 @@ window.onload = function() {
 		studyAddress = document.getElementById("stydyAddress").getElementsByTagName("ul")[0],
 		inputValue = document.getElementById("allseach"),
 		closeDialog = document.getElementById("closeDialog"),
+		closeDialog1 = document.getElementById("closeDialog1"),
 		summaryul = document.getElementById("summary").getElementsByTagName("ul")[0],
 		Explain = document.getElementById("Explain"),
 		dialog = document.getElementsByClassName("dialog")[0],
-		dialogUl = document.getElementById("dialogUl");
+		dialog2 = document.getElementById("addOffice"),
+		addOfficeBtn = document.getElementById("addOfficeBtn"),
+		dialogUl = document.getElementById("dialogUl"),
+		dialogCancel = document.getElementById("addOfficeDialogButton").getElementsByTagName("div")[1];
 	var demolData = [],
 		studyData = [],
 		dialogData = [],
 		summaryData= [],
 		allbuidData = {};
-
+//创建txt文件
+		function creatOfficeTxt (){
+			var fso=new ActiveXObject(Scripting.FileSystemObject);
+		console.log(fso);	
+		}
+//		 creatOfficeTxt ()
 	function getAjax() {
 		var dataBox = new XMLHttpRequest();
 		dataBox.open("GET", './data/data1.json', true);
@@ -30,9 +39,26 @@ window.onload = function() {
 		};
 	}
 	getAjax();
-
+	dialogCancel.onclick=function(){
+				 disDialog ()
+	}
+	function disDialog (){
+		dialog.style.display = "none";
+		dialog2.style.display = "none";
+		dialogData = [];
+		dialogUl.innerHTML = "";
+		inputValue.value = "";
+	}
+	
+	addOfficeBtn.onclick=function(){
+		dialog2.style.display = "block";
+	}
+	closeDialog1.onclick=function(){
+		 disDialog ()
+	}
 	closeDialog.onclick = function() {
 		dialog.style.display = "none";
+		dialog2.style.display = "none";
 		dialogData = [];
 		dialogUl.innerHTML = "";
 		inputValue.value = "";

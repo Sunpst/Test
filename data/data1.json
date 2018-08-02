@@ -66,6 +66,10 @@
 				"imgName":"",
 				"caseName":"3D叠加切换轮播代码",
 				"caseUrl":"./demol/jQuery 3D叠加切换轮播代码/index.html"	
+				},{
+				"imgName":"",
+				"caseName":"进度条轮播",
+				"caseUrl":"./demol/3dwall_slider/index.html"	
 				}
 			]
 		},
@@ -119,7 +123,7 @@
 				"caseUrl":"http://blog.sina.com.cn/s/blog_6b60ad7d0100mzpd.html"
 				},{
 				"imgName":"import",
-				"caseName":"ndoe中文API",
+				"caseName":"node中文API",
 				"caseUrl":"http://nodejs.cn/api/"
 				},{
 				"imgName":"import",
@@ -127,11 +131,7 @@
 				"caseUrl":"https://www.tuicool.com/a/"
 				},{
 				"imgName":"import",
-				"caseName":"ndoe中文API",
-				"caseUrl":"http://nodejs.cn/api/"
-				},{
-				"imgName":"import",
-				"caseName":"ndoe中文API",
+				"caseName":"node中文API",
 				"caseUrl":"http://nodejs.cn/api/"
 				},{
 				"imgName":"import",
@@ -208,16 +208,26 @@
 				"message":"",
 				"caseName":"一个全栈搭建项目的过程",
 				"caseUrl":"http://www.wclimb.site/2017/07/12/Node-Koa2-Mysql-%E6%90%AD%E5%BB%BA%E7%AE%80%E6%98%93%E5%8D%9A%E5%AE%A2/"
+				},{
+				"imgName":"import",
+				"message":"",
+				"caseName":"webpack文件编写",
+				"caseUrl":"http://javascript.ruanyifeng.com/nodejs/packagejson.html#toc1"
+				},{
+				"imgName":"import",
+				"message":"",
+				"caseName":"正则",
+				"caseUrl":"https://www.cnblogs.com/eaysun/p/5490603.html"
+				},{
+				"imgName":"import",
+				"message":"",
+				"caseName":"GoJs",
+				"caseUrl":"https://gojs.net/latest/learn/index.html"
 				}
 		]
 		},
 		"summary": {
 		"tableData":[
-		{
-				"imgName":"import",
-				"caseName":"bluesky的博客",
-				"caseUrl":"http://blog.sina.com.cn/s/blog_6b60ad7d0100mzpd.html"
-				}
 		]
 		}
 		
