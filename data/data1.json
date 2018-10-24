@@ -70,6 +70,10 @@
 				"imgName":"",
 				"caseName":"进度条轮播",
 				"caseUrl":"./demol/3dwall_slider/index.html"	
+				},{
+				"imgName":"",
+				"caseName":"摄像头",
+				"caseUrl":"./demol/shexiang.html"	
 				}
 			]
 		},
